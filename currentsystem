@@ -1,0 +1,23 @@
+print("hello world")
+
+Playercount = #game.Players:GetChildren()
+Gamestatesui = game.StarterGui.ScreenGui.Frame.TextLabel
+inround = game.ServerScriptService["round states"]["inround?"]
+roundpossible = game.ServerScriptService["round states"].roundpossible
+
+print(Playercount)
+
+
+roundpossible = false
+
+function lobbyintermission()
+	if Playercount < 2 then
+		Gamestatesui.Text = "waiting for players ("..Playercount.."/2 players)" else
+		if Playercount >= 2 then Gamestatesui.Text = "game starting shortly"
+			roundpossible = true
+			
+		end
+	end
+end
+
+lobbyintermission() repeat until roundpossible == true
